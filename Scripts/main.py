@@ -1,5 +1,5 @@
-from Scripts.functions import draw_component, get_settings
-from Scripts.const import WIN_SIZE
+from functions import draw_component, get_settings
+from const import WIN_SIZE
 import tkinter as tk
 
 data = get_settings()

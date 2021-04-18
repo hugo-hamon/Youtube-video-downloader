@@ -1,6 +1,6 @@
 import tkinter as tk
 from threading import Thread
-from Scripts.const import DOWNLOAD_FOLDER, BG_COLOR
+from const import DOWNLOAD_FOLDER, BG_COLOR
 import json
 import pytube
 import os
