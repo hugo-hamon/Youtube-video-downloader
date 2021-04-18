@@ -1,5 +1,5 @@
-from functions import *
-from const import *
+from Scripts.functions import draw_component
+from Scripts.const import WIN_SIZE, BG_COLOR
 import tkinter as tk
 
 window = tk.Tk()
