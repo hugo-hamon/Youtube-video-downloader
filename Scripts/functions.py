@@ -11,12 +11,12 @@ def download_video(url='', folder=''):
     """Download video function and make dir if not exist"""
     if not os.path.exists(folder):
         os.makedirs(folder)
-    pytube.YouTube(url).streams.first().download(folder)
+    pytube.YouTube(url).streams.get_highest_resolution().download(folder)
 
 
 def download_playlist(url='', folder=''):
     """Download playlist function and make dir if not exist"""
-    youtube_stream_audio = '140'  # Download juste the audio
+    youtube_stream_audio = '22'  # Download juste the audio
     playlist = pytube.Playlist(url)
     playlist._video_regex = re.compile(r"\"url\":\"(/watch\?v=[\w-]*)")
 
