@@ -16,14 +16,11 @@ def download_video(url='', folder=''):
 
 def download_playlist(url='', folder=''):
     """Download playlist function and make dir if not exist"""
-    youtube_stream_audio = '22'  # Download juste the audio
     playlist = pytube.Playlist(url)
-    playlist._video_regex = re.compile(r"\"url\":\"(/watch\?v=[\w-]*)")
 
     # physically downloading the audio track
     for video in playlist.videos:
-        audio_stream = video.streams.get_by_itag(int(youtube_stream_audio))
-        audio_stream.download(output_path=folder)
+        video.streams.first().download(folder)
 
 
 def download(mode=1, url='', folder=''):
