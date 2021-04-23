@@ -1,3 +1,4 @@
 WIN_SIZE = (1080, 720)
-BG_COLOR = "#F54E4E"
+BG_COLOR = "#000"
 DOWNLOAD_FOLDER = '../Downloads'
+INDEX_DOWNLOAD = "False"
