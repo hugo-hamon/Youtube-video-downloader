@@ -1,5 +1,5 @@
 {
-     "BACKGROUND_COLOR": "#000",
-     "DOWNLOAD_FOLDER": "../Downloads",
-     "INDEX_DOWNLOAD": "False"
+  "BACKGROUND_COLOR": "#000",
+  "DOWNLOAD_FOLDER": "../Downloads",
+  "INDEX_DOWNLOAD": "False"
 }
