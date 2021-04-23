@@ -4,7 +4,6 @@ from const import DOWNLOAD_FOLDER, BG_COLOR
 import json
 import pytube
 import os
-import re
 
 
 def download_video(url='', folder=''):
@@ -19,8 +18,10 @@ def download_playlist(url='', folder=''):
     playlist = pytube.Playlist(url)
 
     # physically downloading the audio track
+    i = 1
     for video in playlist.videos:
-        video.streams.first().download(folder)
+        video.streams.first().download(output_path=folder, filename=f"[{i}] {video.title}")
+        i += 1
 
 
 def download(mode=1, url='', folder=''):
