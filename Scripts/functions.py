@@ -31,7 +31,6 @@ def download_video(url=''):
 
 
 def download_playlist(url=''):
-    print(url)
     """Download playlist function and make dir if not exist"""
     data = get_settings()
     folder = data['DOWNLOAD_FOLDER']
