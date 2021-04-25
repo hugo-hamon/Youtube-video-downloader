@@ -31,6 +31,7 @@ def download_video(url=''):
 
 
 def download_playlist(url=''):
+    print(url)
     """Download playlist function and make dir if not exist"""
     data = get_settings()
     folder = data['DOWNLOAD_FOLDER']
@@ -52,10 +53,10 @@ def download(mode=1, url=''):
     """Call playlist or video download"""
     # Video download
     if mode == 1:
-        thread = Thread(target=download_video, args=url)
+        thread = Thread(target=download_video, args=(url,))
         thread.start()
     elif mode == 2:
-        thread = Thread(target=download_playlist, args=url)
+        thread = Thread(target=download_playlist, args=(url,))
         thread.start()
 
 
