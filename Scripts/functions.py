@@ -84,14 +84,20 @@ def get_settings():
     return data
 
 
-def set_check(state):
-    save_settings(index="True" if state else "False")
+def set_check(chk):
+    data = get_settings()
+    index = data['INDEX_DOWNLOAD']
+    index = "False" if index == "True" else "True"
+    save_settings(index=index)
+    chk.config(fg="green" if index == "True" else "red")
+    chk.update()
 
 
 def settings_window():
     """Display settings window"""
     data = get_settings()
     bg_color = data['BACKGROUND_COLOR']
+    index = data['INDEX_DOWNLOAD']
     window = tk.Tk()
     window.minsize(720, 480)
     window.maxsize(720, 480)
@@ -108,9 +114,9 @@ def settings_window():
         user_entry = tk.Entry(window, width=10 + 10 * i, font=("Arial", 15, 'bold'), justify="center")
         user_entry.pack()
         user_entry_list.append(user_entry)
-
-    chk = ttk.Checkbutton(window, text="Is index", command=lambda: set_check(chk.instate(['selected'])))
+    chk = tk.Checkbutton(window, text="Is index", command=lambda: set_check(chk), fg="green" if index == "True" else "red")
     chk.pack(pady=20)
+
 
     function_button = tk.Button(window, text=title_label[2], width=20,
                                 command=lambda: save_settings(user_entry_list[0].get(), user_entry_list[1].get()))
