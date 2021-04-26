@@ -41,11 +41,11 @@ def download_playlist(url=''):
     if index == "True":
         i = 1
         for video in playlist.videos:
-            video.streams.first().download(output_path=folder, filename=f"[{i}] {video.title}")
+            video.streams.get_highest_resolution().download(output_path=folder, filename=f"[{i}] {video.title}")
             i += 1
     else:
         for video in playlist.videos:
-            video.streams.first().download(output_path=folder)
+            video.streams.get_highest_resolution().download(output_path=folder)
 
 
 def download(mode=1, url=''):
@@ -114,9 +114,9 @@ def settings_window():
         user_entry = tk.Entry(window, width=10 + 10 * i, font=("Arial", 15, 'bold'), justify="center")
         user_entry.pack()
         user_entry_list.append(user_entry)
-    chk = tk.Checkbutton(window, text="Is index", command=lambda: set_check(chk), fg="green" if index == "True" else "red")
+    chk = tk.Checkbutton(window, text="Is index", command=lambda: set_check(chk), fg="green" if index == "True"
+                         else "red")
     chk.pack(pady=20)
-
 
     function_button = tk.Button(window, text=title_label[2], width=20,
                                 command=lambda: save_settings(user_entry_list[0].get(), user_entry_list[1].get()))
